@@ -1,9 +1,8 @@
 from typing import Union
 from fastapi import FastAPI
 
-from src.model.jogador import Jogador
-from src.database.jogador_db import JogadorDB
-from src.controller.jogador_controller import JogadorController
+from A3_BATALHA_NAVAL_SDM.src.controller.jogador_controller import JogadorController
+
 app = FastAPI()
 
 @app.put("/registrar/jogadores/{nome}/{email}/{senha}")
