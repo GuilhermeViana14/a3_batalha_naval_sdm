@@ -53,3 +53,14 @@ class JogadorDB:
             
         if(ConfigDB.get_fonte_dados() == "Banco"):
             self.listar_jogador()
+
+
+    def verificar_credenciais(self, nome: str, senha: str) -> bool:
+        """
+        Verifica se as credenciais (email e senha) são válidas.
+        Retorna True se as credenciais são válidas, False caso contrário.
+        """
+        with sqlite3.connect("batalha_naval.db") as conn:
+            cursor = conn.cursor()
+            res = cursor.execute("SELECT nome, senha FROM Jogadores WHERE nome = ? AND senha = ?", (nome, senha))
+            return bool(res.fetchone())
