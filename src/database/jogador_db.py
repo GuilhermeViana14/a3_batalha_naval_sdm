@@ -39,6 +39,14 @@ class JogadorDB:
         self._lista_de_jogadores.append(jogador)
         return jogador      
     
+    def delete_jogador_por_nome(self, nome : str):
+        #deletar jogador da tabela
+        self._lista_de_jogadores = [
+            d for d in self._lista_de_jogadores 
+                if d.nome != nome
+        ]
+        ConfigDB.executa_sql("""DELETE FROM Jogadores where nome = ? """, (nome,))
+        return self._lista_de_jogadores
     
     
     def __init__(self):
