@@ -26,3 +26,9 @@ class JogadorController:
     #delete jogadores que ja foram cadastrados
     def delete_jogador_por_nome(cls, nome : str):
         return cls.get_instance()._db.delete_jogador_por_nome(nome)
+    
+    #editar senha do jogador
+    def editar_senha_jogador(cls, nome : str ,email : str, senha : str):
+        jogador : Jogador = Jogador(nome, email, senha)
+        return cls.get_instance()._db.editar_jogador_senha(jogador)
+        
