@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from .jogadorDB import JogadorDB
+from database.jogador_db import JogadorDB
 from pydantic import BaseModel
 
 router = APIRouter()
