@@ -30,7 +30,14 @@ class JogadorDB:
          # Inserir jogador na tabela Jogadores
         ConfigDB.executa_sql("""INSERT INTO Jogadores (nome, senha, email, pontuacao) VALUES (?, ?, ?, ?);""", (jogador.nome, jogador.senha, jogador.email, jogador.pontuacao))
         self._lista_de_jogadores.append(jogador)
-        return jogador          
+        return jogador
+    
+    def editar_jogador_senha(self, jogador: Jogador):
+        
+        #edita a senha buscando o email do jogador e assim editando a senha salva no banco especifico do jogador que possuir o email editado
+        ConfigDB.executa_sql(""" UPDATE Jogadores SET senha = ? WHERE email = ?""", (jogador.senha, jogador.email))
+        self._lista_de_jogadores.append(jogador)
+        return jogador      
     
     
     
