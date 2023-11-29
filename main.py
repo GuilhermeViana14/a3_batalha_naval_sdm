@@ -21,3 +21,7 @@ async def ranking():
 @app.delete("/remover/jogadores/{nome}")
 async def delete_jogadores(nome: str):
     return JogadorController.get_instance().delete_jogador_por_nome(nome)
+
+@app.patch("/editar/jogador/senha/{nome}/{email}/{senha}")
+async def editar_jogador_senha(nome : str , email : str, senha: str):
+    return JogadorController.get_instance().editar_senha_jogador(nome, email , senha)
