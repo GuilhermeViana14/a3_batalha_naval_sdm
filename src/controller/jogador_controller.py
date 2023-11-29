@@ -14,6 +14,11 @@ class JogadorController:
             cls._instance = JogadorController()
         return cls._instance
     
+    #cadastra o jogador no banco de dados
+    def inserir_jogadores_banco(cls, nome :str, email : str , senha : str):
+        jogador : Jogador = Jogador(nome, email, senha)
+        return cls.get_instance()._db.inserir_jogador(jogador)
+    
     #lista todos os jogadores cadastrados
     def lista_todos_os_jogadores(self):
         return self._db.lista_todos_os_jogadores()
