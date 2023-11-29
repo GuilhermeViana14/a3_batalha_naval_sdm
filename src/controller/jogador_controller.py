@@ -31,4 +31,28 @@ class JogadorController:
     def editar_senha_jogador(cls, nome : str ,email : str, senha : str):
         jogador : Jogador = Jogador(nome, email, senha)
         return cls.get_instance()._db.editar_jogador_senha(jogador)
+    
+    def lista_ranking_top(self):
+        jogadores = self._db.lista_todos_os_jogadores()
+        
+        # on the fly (em tempo de execução)
+        jogadores_dto = []
+        for jogador in jogadores:
+
+            # jogador_simplificado = { }
+            # jogador_simplificado["apelido"] = jogador._apelido
+
+            jogadores_dto.append({
+                "nome": jogador.nome,
+                "pontuacao": int(jogador.pontuacao)
+            })
+
+        def criterio(jogador_dto):
+            return - jogador_dto["pontuacao"]
+
+        # ordenar o vetor, do maior ao menor, pelo score
+        v_ordenado = sorted(jogadores_dto, key=criterio)
+
+        # DTO => data transfer object
+        return v_ordenado[:5]   # syntax sugar
         
