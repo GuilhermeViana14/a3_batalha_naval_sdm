@@ -13,3 +13,7 @@ class JogadorController:
         if cls._instance is None:
             cls._instance = JogadorController()
         return cls._instance
+    
+    #lista todos os jogadores cadastrados
+    def lista_todos_os_jogadores(self):
+        return self._db.lista_todos_os_jogadores()
