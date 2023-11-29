@@ -1,7 +1,7 @@
 from typing import Union
 from fastapi import FastAPI
 
-from A3_BATALHA_NAVAL_SDM.src.controller.jogador_controller import JogadorController
+from controller.jogador_controller import JogadorController
 
 app = FastAPI()
 
