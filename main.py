@@ -13,3 +13,7 @@ def registrar_jogadores(nome: str, email : str, senha: str):
 @app.get("/listar/jogadores")
 async def lista_jogadores():
     return JogadorController.get_instance().lista_todos_os_jogadores()
+
+@app.get("/ranking")
+async def ranking():
+    return JogadorController.get_instance().lista_ranking_top()
