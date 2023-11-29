@@ -17,3 +17,7 @@ async def lista_jogadores():
 @app.get("/ranking")
 async def ranking():
     return JogadorController.get_instance().lista_ranking_top()
+
+@app.delete("/remover/jogadores/{nome}")
+async def delete_jogadores(nome: str):
+    return JogadorController.get_instance().delete_jogador_por_nome(nome)
