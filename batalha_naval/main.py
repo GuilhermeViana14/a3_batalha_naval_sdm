@@ -1,15 +1,11 @@
 from typing import Union
 from fastapi import FastAPI, HTTPException
+from model.autenticacao_login import LoginRequest
 from pydantic import BaseModel
 
 from controller.jogador_controller import JogadorController
-
 app = FastAPI()
 
-
-class LoginRequest(BaseModel):
-    nome: str
-    senha: str
 
 @app.post("/login")
 def login(login_request: LoginRequest):
