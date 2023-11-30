@@ -1,9 +1,24 @@
 from typing import Union
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
 
 from controller.jogador_controller import JogadorController
 
 app = FastAPI()
+
+
+class LoginRequest(BaseModel):
+    nome: str
+    senha: str
+
+@app.post("/login")
+def login(login_request: LoginRequest):
+    jogador_controller = JogadorController.get_instance()
+    if jogador_controller.verificar_credenciais(login_request.nome, login_request.senha):
+        return {"message": "Login feito com sucesso!"}
+    else:
+        raise HTTPException(status_code=401, detail="Nome ou Senha inválido.")
+
 
 @app.put("/registrar/jogadores/{nome}/{email}/{senha}")
 def registrar_jogadores(nome: str, email : str, senha: str):
@@ -24,3 +39,7 @@ async def delete_jogadores(nome: str):
 @app.patch("/editar/jogador/senha/{nome}/{email}/{senha}")
 async def editar_jogador_senha(nome : str , email : str, senha: str):
     return JogadorController.get_instance().editar_senha_jogador(nome, email , senha)
+
+
+
+

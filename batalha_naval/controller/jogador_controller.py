@@ -1,5 +1,6 @@
 from database.jogador_db import JogadorDB
 from model.jogador import Jogador
+
 class JogadorController:
     
     _instance = None
@@ -13,6 +14,15 @@ class JogadorController:
         if cls._instance is None:
             cls._instance = JogadorController()
         return cls._instance
+    
+    
+    def verificar_credenciais(self, nome: str, senha: str) -> bool:
+            jogadores = self._db.lista_todos_os_jogadores()
+            for jogador in jogadores:
+                if jogador.nome == nome and jogador.senha == senha:
+                    return True
+            return False
+    
     
     #cadastra o jogador no banco de dados
     def inserir_jogadores_banco(cls, nome :str, email : str , senha : str):
@@ -55,4 +65,6 @@ class JogadorController:
 
         # DTO => data transfer object
         return v_ordenado[:5]   # syntax sugar
+    
+    
         
