@@ -2,7 +2,7 @@ from typing import Union
 from fastapi import FastAPI
 
 from controller.jogador_controller import JogadorController
-
+from controller.partida_controller import PartidaController
 
 
 app = FastAPI()
@@ -27,4 +27,8 @@ async def delete_jogadores(nome: str):
 @app.patch("/editar/jogador/senha/{nome}/{email}/{senha}")
 async def editar_jogador_senha(nome : str , email : str, senha: str):
     return JogadorController.get_instance().editar_senha_jogador(nome, email , senha)
+
+@app.post("/jogador/fila/{nome}/{senha}")
+async def entrar_fila(nome : str , senha: str):
+    return PartidaController.get_instance().jogador_entrar_na_fila(nome, senha)
 
