@@ -1,0 +1,5 @@
+.venv
+batalha_naval/__pycache__
+batalha_naval/controller/__pycache__
+batalha_naval/database/__pycache__
+batalha_naval/model/__pycache__
