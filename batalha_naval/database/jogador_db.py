@@ -46,7 +46,7 @@ class JogadorDB:
                 if d.nome != nome
         ]
         ConfigDB.executa_sql("""DELETE FROM Jogadores where nome = ? """, (nome,))
-        return self._lista_de_jogadores
+        return "Usuario excluido!"
     
     
     def __init__(self):

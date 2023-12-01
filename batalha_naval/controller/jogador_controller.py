@@ -21,12 +21,6 @@ class JogadorController:
         jogador : Jogador = Jogador(nome, email, senha)
         return cls.get_instance()._db.inserir_jogador(jogador)
     
-    
-    #lista todos os jogadores cadastrados
-    @classmethod
-    def lista_todos_os_jogadores(self):
-        return self._db.lista_todos_os_jogadores()
-    
     #delete jogadores que ja foram cadastrados
     @classmethod
     def delete_jogador_por_nome(cls, nome : str):
@@ -38,7 +32,11 @@ class JogadorController:
         jogador : Jogador = Jogador(nome, email, senha)
         return cls.get_instance()._db.editar_jogador_senha(jogador)
     
-    @classmethod
+    #lista todos os jogadores cadastrados
+    def lista_todos_os_jogadores(self):
+        return self._db.lista_todos_os_jogadores()
+    
+    
     def lista_ranking_top(self):
         jogadores = self._db.lista_todos_os_jogadores()
         
