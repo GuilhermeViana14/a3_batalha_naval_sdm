@@ -2,6 +2,7 @@ from typing import List
 from model.jogador import Jogador
 from model.jogo import Jogo
 from fastapi import HTTPException
+from model.partida import Partida
 
 class FilaEspera:
     def __init__(self):
@@ -26,3 +27,10 @@ class FilaEspera:
 
             # Inicia a partida
             Jogo.start_game(jogador_1, jogador_2)
+            
+            
+            
+    
+            
+            
+        
