@@ -13,3 +13,6 @@ class AutenticacaoController:
         if cls._instance is None:
             cls._instance = AutenticacaoDB()
         return cls._instance
+    
+    def autenticar_sala(cls, nome : str, id : str, tempo : str):
+        lista
