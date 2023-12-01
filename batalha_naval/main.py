@@ -3,11 +3,20 @@ from fastapi import FastAPI, HTTPException
 from model.autenticacao_login import LoginRequest
 from pydantic import BaseModel
 from controller.fila_controller import FilaEspera
-
+from model.jogo import start_game
+from model.partida import Partida
+from model.jogo import Jogo
 
 from controller.jogador_controller import JogadorController
+
 app = FastAPI()
 
+
+partidas_em_andamento = {}  # Um dicionário para rastrear as partidas em andamento
+
+@app.post("/iniciar_partida")
+def main_iniciar_partida(jogador1: str, jogador2: str):
+    return start_game(jogador1, jogador2, partidas_em_andamento)
 
 @app.post("/login")
 def login(login_request: LoginRequest):
