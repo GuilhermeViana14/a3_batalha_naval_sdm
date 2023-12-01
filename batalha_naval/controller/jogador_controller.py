@@ -14,33 +14,37 @@ class JogadorController:
             cls._instance = JogadorController()
         return cls._instance
     
+    
     #cadastra o jogador no banco de dados
+    @classmethod
     def inserir_jogadores_banco(cls, nome :str, email : str , senha : str):
         jogador : Jogador = Jogador(nome, email, senha)
         return cls.get_instance()._db.inserir_jogador(jogador)
     
+    
     #lista todos os jogadores cadastrados
+    @classmethod
     def lista_todos_os_jogadores(self):
         return self._db.lista_todos_os_jogadores()
     
     #delete jogadores que ja foram cadastrados
+    @classmethod
     def delete_jogador_por_nome(cls, nome : str):
         return cls.get_instance()._db.delete_jogador_por_nome(nome)
     
     #editar senha do jogador
+    @classmethod
     def editar_senha_jogador(cls, nome : str ,email : str, senha : str):
         jogador : Jogador = Jogador(nome, email, senha)
         return cls.get_instance()._db.editar_jogador_senha(jogador)
     
+    @classmethod
     def lista_ranking_top(self):
         jogadores = self._db.lista_todos_os_jogadores()
         
         # on the fly (em tempo de execução)
         jogadores_dto = []
         for jogador in jogadores:
-
-            # jogador_simplificado = { }
-            # jogador_simplificado["apelido"] = jogador._apelido
 
             jogadores_dto.append({
                 "nome": jogador.nome,
@@ -54,5 +58,5 @@ class JogadorController:
         v_ordenado = sorted(jogadores_dto, key=criterio)
 
         # DTO => data transfer object
-        return v_ordenado[:5]   # syntax sugar
+        return v_ordenado[:5]
         
