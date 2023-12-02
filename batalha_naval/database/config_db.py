@@ -12,7 +12,11 @@ class ConfigDB():
         with sqlite3.connect("batalha_naval.db") as conn:
             try:
                 cursor = conn.cursor()
+                
                 res = cursor.execute(codigo_sql, value)
+                conn.commit()
+                return res
             except sqlite3.Error as e:
                 print(e)
+                
 

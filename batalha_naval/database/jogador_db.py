@@ -45,9 +45,16 @@ class JogadorDB:
             d for d in self._lista_de_jogadores 
                 if d.nome != nome
         ]
-        ConfigDB.executa_sql("""DELETE FROM Jogadores where nome = ? """, (nome,))
+        ConfigDB.executa_sql("""DELETE FROM Jogadores where nome = ? """, (nome))
         return "Usuario excluido!"
     
+    def get_id(self, id : int):
+        res = ConfigDB.executa_sql("""SELECT id, nome, email, senha, pontuacao FROM Jogadores where id = ? """,(id))
+        for item in res:
+            
+            jogador = Jogador(nome=item[1],email = item[2], senha = item[3])
+            jogador.pontuacao = item[4]
+            return jogador
     
     def __init__(self):
             
