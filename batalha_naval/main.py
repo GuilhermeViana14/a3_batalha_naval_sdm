@@ -26,10 +26,6 @@ async def delete_jogadores(nome: str):
 async def editar_jogador_senha(nome : str , email : str, senha: str):
     return JogadorController.get_instance().editar_senha_jogador(nome, email , senha)
 
-# @app.get("/tabuleiro")
-# async def imprimir_tabuleiro():
-#     ret
-
 @app.post("/procura/partida/{id_jogador}")
 async def procura_partida(id_jogador):
     return PartidaController.get_instance().acha_jogo(id_jogador)
@@ -42,6 +38,7 @@ async def verifica_partida(id_jogador):
 async def tabuleiro(id_partida):
     return PartidaController.get_instance().pegar_tabuleiro(int (id_partida))
 
+#nao implementado
 @app.put("/tabuleiro/colocar/barco/{lista_barcos}/{id_partida}/{id_jogador}")
 async def colocar_barcos(lista_barco : list , id_partida : int, id_jogador : int ):
     
