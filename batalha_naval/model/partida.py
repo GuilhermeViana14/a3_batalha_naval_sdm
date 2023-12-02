@@ -58,6 +58,8 @@ class Partida:
                 self.matriz_2[x] = 1
                     
     def verificar_fim(self):
+        #verifica qual matriz primeiro nao possui o navio 
+        # caso nao possua navio dentro dela diriamos qual dos jogadores ganhou
         tem_jogo = False
         for x in self.matriz_1:
             if self.matriz_1 [x] == 1:
@@ -74,6 +76,7 @@ class Partida:
             return "jogador 1 ganhou"
         
     def imprimir_tabuleiro(self):
+        #imprime o tabuleiro atraveis de uma maitrz utilizando uma string
         string_1 = ""
         string_2 = ""
         
