@@ -81,7 +81,7 @@ class Partida:
         
     
     def imprimir_tabuleiro(self):
-        #imprime o tabuleiro atraveis de uma maitrz utilizando uma string
+        #imprime o tabuleiro atraveis de maitrz utilizando uma string
         string_1 = ""
         string_2 = ""
         
