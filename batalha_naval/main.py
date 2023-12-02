@@ -38,13 +38,7 @@ async def verifica_partida(id_jogador):
 async def tabuleiro(id_partida):
     return PartidaController.get_instance().pegar_tabuleiro(int (id_partida))
 
-#nao implementado
-@app.put("/tabuleiro/colocar/barco/{lista_barcos}/{id_partida}/{id_jogador}")
-async def colocar_barcos(lista_barco : list , id_partida : int, id_jogador : int ):
-    
-
-
-    if __name__ == "__main__":
-
-        uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
+# #nao implementado
+# @app.put("/tabuleiro/colocar/barco/{lista_barcos}/{id_partida}/{id_jogador}")
+# async def colocar_barcos(lista_barco : list , id_partida : int, id_jogador : int ):
 

@@ -11,7 +11,7 @@ class JogadorDB:
         return self._lista_de_jogadores
     
     def listar_jogador(self):
-        # lê do banco de dados listnado os jogadores
+        # lê do banco de dados listando os jogadores
         with sqlite3.connect("batalha_naval.db") as conn:
 
             cursor = conn.cursor()
@@ -48,6 +48,7 @@ class JogadorDB:
         ConfigDB.executa_sql("""DELETE FROM Jogadores where nome = ? """, (nome))
         return "Usuario excluido!"
     
+    #Da get id dos jogadores no banco de dados
     def get_id(self, id : int):
         res = ConfigDB.executa_sql("""SELECT id, nome, email, senha, pontuacao FROM Jogadores where id = ? """,(id))
         for item in res:

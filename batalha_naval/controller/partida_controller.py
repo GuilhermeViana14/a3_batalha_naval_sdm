@@ -46,6 +46,7 @@ class PartidaController:
         return -1
     
     @classmethod
+    #pegamos o tabuleiro atraveis do id da partida e imprimimos ele
     def pegar_tabuleiro(cls, id_partida : int):
         return cls.lista_jogos[id_partida].imprimir_tabuleiro()
     
