@@ -46,7 +46,7 @@ async def tabuleiro(id_partida):
 async def colocar_barcos(lista_barco : list , id_partida : int ):
 
 
-if __name__ == "__main__":
+    if __name__ == "__main__":
 
-    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
+        uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
 
