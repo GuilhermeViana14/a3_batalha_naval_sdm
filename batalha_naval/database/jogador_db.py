@@ -19,8 +19,8 @@ class JogadorDB:
 
             for item in res:
             
-                jogador = Jogador(id= item [1],nome=item[2],email = item[3], senha = item[4])
-                jogador.pontuacao = item[5]
+                jogador = Jogador(nome=item[1],email = item[2], senha = item[3])
+                jogador.pontuacao = item[4]
                 self._lista_de_jogadores.append(jogador)
     
     def registrar_jogador(self, jogador: Jogador):
@@ -54,7 +54,7 @@ class JogadorDB:
             jogador = Jogador(nome=item[1],email = item[2], senha = item[3])
             jogador.pontuacao = item[4]
             return jogador
-            
+
     def __init__(self):
             
         if(ConfigDB.get_fonte_dados() == "Banco"):
