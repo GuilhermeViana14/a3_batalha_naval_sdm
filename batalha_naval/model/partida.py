@@ -39,6 +39,7 @@ class Partida:
         if id_jogador == 2:
             ponto = self.matriz_1.get((x,y))
             if ponto == 0:
+                # nao acertou
                 self.matriz_1[(x,y)] = 2
                 return "nao acertou"
             elif ponto == 1:
@@ -81,7 +82,7 @@ class Partida:
         
     
     def imprimir_tabuleiro(self):
-        #imprime o tabuleiro atraveis de maitrz utilizando uma string
+        #imprime o tabuleiro atraveis da maitrz utilizando string
         string_1 = ""
         string_2 = ""
         
