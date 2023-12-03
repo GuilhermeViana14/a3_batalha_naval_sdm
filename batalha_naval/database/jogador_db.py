@@ -17,13 +17,10 @@ class JogadorDB:
             cursor = conn.cursor()
             res = cursor.execute("SELECT id, nome, email, senha, pontuacao FROM Jogadores")
 
-            for r in res:
-                jogador = Jogador(
-                    nome=r[1],
-                    email=r[2],
-                    senha=r[3]
-                )
-                jogador.pontuacao = r[4]
+            for item in res:
+            
+                jogador = Jogador(id= item [1],nome=item[2],email = item[3], senha = item[4])
+                jogador.pontuacao = item[5]
                 self._lista_de_jogadores.append(jogador)
     
     def registrar_jogador(self, jogador: Jogador):
@@ -57,7 +54,7 @@ class JogadorDB:
             jogador = Jogador(nome=item[1],email = item[2], senha = item[3])
             jogador.pontuacao = item[4]
             return jogador
-    
+            
     def __init__(self):
             
         if(ConfigDB.get_fonte_dados() == "Banco"):

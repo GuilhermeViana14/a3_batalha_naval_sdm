@@ -57,4 +57,3 @@ class JogadorController:
 
         # DTO => data transfer object
         return v_ordenado[:5]
-        
