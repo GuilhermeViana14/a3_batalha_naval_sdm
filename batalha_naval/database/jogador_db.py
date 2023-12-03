@@ -39,7 +39,7 @@ class JogadorDB:
         self._lista_de_jogadores.append(jogador)
         return jogador      
     
-    def delete_jogador_por_nome(self, nome : str):
+    def deletar_jogador(self, nome : str):
         #deletar jogador da tabela
         self._lista_de_jogadores = [
             d for d in self._lista_de_jogadores 
