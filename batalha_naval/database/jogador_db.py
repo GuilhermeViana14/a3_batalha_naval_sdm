@@ -21,11 +21,12 @@ class JogadorDB:
             
                 jogador = Jogador(nome=item[1],email = item[2], senha = item[3])
                 jogador.pontuacao = item[4]
+                jogador.id = item[0]
                 self._lista_de_jogadores.append(jogador)
     
     def registrar_jogador(self, jogador: Jogador):
          # Inserir jogador na tabela Jogadores
-        ConfigDB.executa_sql("""INSERT INTO Jogadores (nome, senha, email, pontuacao) VALUES (?, ?, ?, ?);""", (jogador.nome, jogador.senha, jogador.email, jogador.pontuacao))
+        ConfigDB.executa_sql("""INSERT INTO Jogadores (id, nome, senha, email, pontuacao) VALUES (?, ?, ?, ?);""", (jogador.nome, jogador.senha, jogador.email, jogador.pontuacao))
         self._lista_de_jogadores.append(jogador)
         return jogador
     
