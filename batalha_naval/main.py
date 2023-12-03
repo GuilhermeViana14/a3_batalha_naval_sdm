@@ -8,7 +8,7 @@ app = FastAPI()
 
 @app.put("/registrar/jogadores/{nome}/{email}/{senha}")
 def registrar_jogadores(nome: str, email : str, senha: str):
-    return JogadorController.get_instance().inserir_jogadores_banco(nome, email, senha)
+    return JogadorController.get_instance().registrar_jogadores_banco(nome, email, senha)
 
 @app.get("/listar/jogadores")
 async def lista_jogadores():
@@ -20,7 +20,7 @@ async def ranking():
 
 @app.delete("/remover/jogadores/{nome}")
 async def delete_jogadores(nome: str):
-    return JogadorController.get_instance().delete_jogador_por_nome(nome)
+    return JogadorController.get_instance().deletar_jogador(nome)
 
 @app.patch("/editar/jogador/senha/{nome}/{email}/{senha}")
 async def editar_jogador_senha(nome : str , email : str, senha: str):

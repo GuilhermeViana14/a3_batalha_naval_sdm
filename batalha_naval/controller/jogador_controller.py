@@ -17,9 +17,9 @@ class JogadorController:
     
     #cadastra o jogador no banco de dados
     @classmethod
-    def inserir_jogadores_banco(cls, nome :str, email : str , senha : str):
+    def registrar_jogadores_banco(cls, nome :str, email : str , senha : str):
         jogador : Jogador = Jogador(nome, email, senha)
-        return cls.get_instance()._db.inserir_jogador(jogador)
+        return cls.get_instance()._db.registrar_jogador(jogador)
     
     #delete jogadores que ja foram cadastrados
     @classmethod
