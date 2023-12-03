@@ -16,12 +16,14 @@ class JogadorDB:
 
             cursor = conn.cursor()
             res = cursor.execute("SELECT id, nome, email, senha, pontuacao FROM Jogadores")
-
+            conn.commit()
             for item in res:
             
                 jogador = Jogador(nome=item[1],email = item[2], senha = item[3])
                 jogador.pontuacao = item[4]
+                jogador.id = item[0]
                 self._lista_de_jogadores.append(jogador)
+                
     
     def registrar_jogador(self, jogador: Jogador):
          # Inserir jogador na tabela Jogadores
