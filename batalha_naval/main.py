@@ -1,8 +1,8 @@
 from fastapi import FastAPI
-import os
-import uvicorn
+
 from controller.jogador_controller import JogadorController
 from controller.partida_controller import PartidaController
+
 app = FastAPI()
 
 

@@ -18,8 +18,8 @@ class PartidaController:
     @classmethod
     def acha_jogo(cls, id_jogador : int):
         
-      #procura dentro da lista de espera se possui 2 jogadores
-      #caso possuia ele cria uma partida na lista de jogos com os
+      #procura dentro da lista se possui 2 jogadores
+      #caso possua ele cria uma partida na lista de jogos com os o id da partida
       jogador = cls.get_instance()._db.get_id(id_jogador)
       if len(cls.lista_espera) >= 1:
           jogador_2 = cls.lista_espera.pop(0)
@@ -34,7 +34,7 @@ class PartidaController:
       
     @classmethod
     def verifica_se_possui_jogo(cls, id_jogador : int):
-        #aqui vmos verificar se o jogador possui algum jogo
+        #aqui vamos verificar se o jogador possui algum jogo
         jogador = cls.get_instance()._db.get_id(id_jogador)
         for idx, jogo in enumerate(cls.lista_jogos):
             print(jogo.jogador_1.nome)

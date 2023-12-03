@@ -34,13 +34,14 @@ class JogadorDB:
     
     def editar_jogador_senha(self, jogador: Jogador):
         
-        #edita a senha buscando o email do jogador e assim editando a senha salva no banco especifico do jogador que possuir o email editado
+        #edita a senha do jogador utilizando o email para pegar o jogador especifico no banco de dados
+        # assim editando a senha salva no banco especifico do jogador que possuir o email editado
         ConfigDB.executa_sql(""" UPDATE Jogadores SET senha = ? WHERE email = ?""", (jogador.senha, jogador.email))
         self._lista_de_jogadores.append(jogador)
         return jogador      
     
     def deletar_jogador(self, nome : str):
-        #deletar jogador da tabela
+        #deletar jogador da tabela utilizando o usuario dele
         self._lista_de_jogadores = [
             d for d in self._lista_de_jogadores 
                 if d.nome != nome
