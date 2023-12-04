@@ -16,14 +16,14 @@ class JogadorDB:
 
             cursor = conn.cursor()
             res = cursor.execute("SELECT id, nome, email, senha, pontuacao FROM Jogadores")
-            conn.commit()
-            for item in res:
-            
-                jogador = Jogador(nome=item[1],email = item[2], senha = item[3])
-                jogador.pontuacao = item[4]
-                jogador.id = item[0]
+            for r in res:
+                jogador = Jogador(
+                    nome=r[1],
+                    email=r[2],
+                    senha=r[3]
+                )
+                jogador.pontuacao = r[4]
                 self._lista_de_jogadores.append(jogador)
-                
     
     def registrar_jogador(self, jogador: Jogador):
          # Inserir jogador na tabela Jogadores
@@ -46,7 +46,7 @@ class JogadorDB:
                 if d.nome != nome
         ]
         ConfigDB.executa_sql("""DELETE FROM Jogadores where nome = ? """, (nome))
-        return "Usuario excluido!"
+        return self._lista_de_jogadores
     
     #Da get id dos jogadores no banco de dados
     def get_id(self, id : int):
