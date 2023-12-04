@@ -1,4 +1,6 @@
 from model.jogador import Jogador
+
+# Classe Partida
 class Partida:
     
     jogador_1 : Jogador
@@ -15,43 +17,43 @@ class Partida:
         self.matriz_1= {(x,y): 0 for x in range(10) for y in range(10)}
         self.matriz_2= {(x,y): 0 for x in range(10) for y in range(10)}
         
-        
-    #nao implementado no request
+    #----------------------------------------------------------------------------
+    # Nao implementado no request
     def atira(self, x : int, y : int, id_jogador : int):
         ## JOGADOR 1 atirou, entao mexeremos na matriz 2
         if id_jogador == 1:
             ponto = self.matriz_2.get((x,y))
             if ponto == 0:
-                # nao acertou
+                # Nao acertou
                 self.matriz_2[(x,y)] = 2
                 return "nao acertou"
                 
             elif ponto == 1:
-                # acertou
+                # Acertou
                 self.matriz_2[(x,y)] = 2
                 return "acertou"
 
             elif ponto == 2:
-                # atirei onde ja atirei
+                # Atirou onde ja foi atirado antes
                 return "Voce ja atirou aqui"
 
         ## JOGADOR 2 atirou, entao mexemos na matriz 1
         if id_jogador == 2:
             ponto = self.matriz_1.get((x,y))
             if ponto == 0:
-                # nao acertou
+                # Nao acertou
                 self.matriz_1[(x,y)] = 2
                 return "nao acertou"
             elif ponto == 1:
-                # acertou
+                # Acertou
                 self.matriz_1[(x,y)] = 2
                 return "acertou"
             elif ponto == 2:
-                # atirei onde ja atirei
+                # Atirou onde ja foi atirado antes
                 return "Voce ja atirou aqui"
             
     
-    #nao implementado no request
+    # Nao implementado no request
     def colocar_barco(self, barco : list, id_jogador : int):
         if id_jogador == 1:
             for x in barco: # x = (x,y) # lista = [(1,1), (1,2), (1,3)]
@@ -61,7 +63,7 @@ class Partida:
             for x in barco: # x = (x,y) # lista = [(1,1), (1,2), (1,3)]
                 self.matriz_2[x] = 1
                     
-    #nao implementado no request
+    # Nao implementado no request
     def verificar_fim(self):
         #verifica qual matriz primeiro nao possui o navio 
         # caso nao possua navio dentro dela diriamos qual dos jogadores ganhou
@@ -79,10 +81,9 @@ class Partida:
         
         if not tem_jogo:
             return "jogador 1 ganhou"
-        
-    
+    #----------------------------------------------------------------------------    
+    # Metodo que imprime o tabuleiro atraves da matriz utilizando strings
     def imprimir_tabuleiro(self):
-        #imprime o tabuleiro atraveis da maitrz utilizando string
         string_1 = ""
         string_2 = ""
         

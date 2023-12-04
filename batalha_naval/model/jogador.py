@@ -1,3 +1,4 @@
+# Classe Jogador
 class Jogador:
     nome : str
     email : str
