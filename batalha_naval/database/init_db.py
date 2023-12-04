@@ -1,12 +1,12 @@
 import sqlite3
 
-# Conectar ao banco de dados (o arquivo será criado se não existir)
+# Codigo para conectar ao banco de dados (o arquivo será criado se não existir)
 conn = sqlite3.connect('batalha_naval.db')
 
-# Criar um cursor
+# Cria um cursor
 cursor = conn.cursor()
 
-# Definir o comando SQL para criar a tabela Jogador
+# Definir o comando SQL para criar a tabela dos Jogadores com seus atributos
 sql_create_table_jogador = '''
     CREATE TABLE Jogadores(
         id INTEGER,
@@ -17,8 +17,8 @@ sql_create_table_jogador = '''
         PRIMARY KEY(id)
     );
 '''
-#executa o cursor para assim criar a tabela
+# Executa o cursor para assim criar a tabela
 cursor.execute(sql_create_table_jogador)
 
-#fecha a conexao
+# Fecha a conexao
 conn.close()

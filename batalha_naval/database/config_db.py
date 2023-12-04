@@ -7,7 +7,7 @@ class ConfigDB():
         return "Banco"
     
     
-    # Conectar ao banco de dados
+    # Metodo para conectar ao banco de dados
     def executa_sql(codigo_sql, value):
         with sqlite3.connect("batalha_naval.db") as conn:
             try:

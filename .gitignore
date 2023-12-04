@@ -1,2 +1,5 @@
-/batalha_naval/__pycache__/
-/batalha_naval.db
+/.venv
+/batalha_naval/batalha_naval.db
+/batalha_naval/controller/__pycache__
+/batalha_naval/database/__pycache__
+/batalha_naval/model/__pycache__

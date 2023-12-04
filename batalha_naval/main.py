@@ -5,7 +5,7 @@ from controller.partida_controller import PartidaController
 
 app = FastAPI()
 
-
+#---------- Funcoes de Jogador ----------
 @app.put("/registrar/jogadores/{nome}/{email}/{senha}")
 def registrar_jogadores(nome: str, email : str, senha: str):
     return JogadorController.get_instance().registrar_jogadores_banco(nome, email, senha)
@@ -26,6 +26,7 @@ async def delete_jogadores(nome: str):
 async def editar_jogador_senha(nome : str , email : str, senha: str):
     return JogadorController.get_instance().editar_senha_jogador(nome, email , senha)
 
+#---------- Funcoes de Partida ----------
 @app.post("/procura/partida/{id_jogador}")
 async def procura_partida(id_jogador):
     return PartidaController.get_instance().acha_jogo(id_jogador)
@@ -37,8 +38,10 @@ async def verifica_partida(id_jogador):
 @app.get("/tabuleiro/{id_partida}")
 async def tabuleiro(id_partida):
     return PartidaController.get_instance().pegar_tabuleiro(int (id_partida))
+#----------------------------------------
 
-# #nao implementado
+
+# Nao implementado
 # @app.put("/tabuleiro/colocar/barco/{lista_barcos}/{id_partida}/{id_jogador}")
 # async def colocar_barcos(lista_barco : list , id_partida : int, id_jogador : int ):
 
