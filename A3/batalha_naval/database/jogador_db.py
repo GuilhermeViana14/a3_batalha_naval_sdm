@@ -42,7 +42,7 @@ class JogadorDB:
             d for d in self._lista_de_jogadores 
                 if d.nome != nome
         ]
-        ConfigDB.executa_sql("""DELETE FROM Jogadores where nome = ? """, (nome))
+        ConfigDB.executa_sql("""DELETE FROM Jogadores where nome = ? """, (nome,))
         return "Usuario excluido!"
     
     # Metodo que da o id para cada jogador no banco de dados
