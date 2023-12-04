@@ -16,6 +16,8 @@ class Partida:
         self.matriz_2= {(x,y): 0 for x in range(10) for y in range(10)}
         
         
+    #----------------------------------------------------------------------------
+
     #nao implementado no request
     def atira(self, x : int, y : int, id_jogador : int):
         ## JOGADOR 1 atirou, entao mexeremos na matriz 2
@@ -61,6 +63,7 @@ class Partida:
             for x in barco: # x = (x,y) # lista = [(1,1), (1,2), (1,3)]
                 self.matriz_2[x] = 1
                     
+    #----------------------------------------------------------------------------    
     #nao implementado no request
     def verificar_fim(self):
         #verifica qual matriz primeiro nao possui o navio 
@@ -80,9 +83,10 @@ class Partida:
         if not tem_jogo:
             return "jogador 1 ganhou"
         
+    #----------------------------------------------------------------------------    
     
+    # Metodo que imprime o tabuleiro atraves da matriz utilizando strings
     def imprimir_tabuleiro(self):
-        #imprime o tabuleiro atraveis da maitrz utilizando string
         string_1 = ""
         string_2 = ""
         

@@ -10,8 +10,9 @@ class JogadorDB:
     def lista_todos_os_jogadores(self):
         return self._lista_de_jogadores
     
+    # Metodo que lê o banco de dados listando os jogadores
     def listar_jogador(self):
-        # lê do banco de dados listando os jogadores
+        
         with sqlite3.connect("batalha_naval.db") as conn:
 
             cursor = conn.cursor()
@@ -27,22 +28,20 @@ class JogadorDB:
                 jogador.id = r[0]
                 self._lista_de_jogadores.append(jogador)
     
+     # Metodo para registrar um novo jogador na tabela Jogadores no banco de dados
     def registrar_jogador(self, jogador: Jogador):
-         # Inserir jogador na tabela Jogadores
         ConfigDB.executa_sql("""INSERT INTO Jogadores (nome, senha, email, pontuacao) VALUES (?, ?, ?, ?);""", (jogador.nome, jogador.senha, jogador.email, jogador.pontuacao,))
         self._lista_de_jogadores.append(jogador)
         return jogador
     
+    # Metodo para editar a senha do jogador utilizando o email para pegar o jogador especifico no banco de dados e editar sua senha
     def editar_jogador_senha(self, jogador: Jogador):
-        
-        #edita a senha do jogador utilizando o email para pegar o jogador especifico no banco de dados
-        # assim editando a senha salva no banco especifico do jogador que possuir o email editado
         ConfigDB.executa_sql(""" UPDATE Jogadores SET senha = ? WHERE email = ?""", (jogador.senha, jogador.email))
         self._lista_de_jogadores.append(jogador)
         return jogador      
     
+    # Metodo para deletar algum jogador especifico da tabela utilizando seu nome de usuario
     def deletar_jogador(self, nome : str):
-        #deletar jogador da tabela utilizando o usuario dele
         self._lista_de_jogadores = [
             d for d in self._lista_de_jogadores 
                 if d.nome != nome
