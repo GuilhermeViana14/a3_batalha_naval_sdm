@@ -30,7 +30,7 @@ class JogadorDB:
     
     def registrar_jogador(self, jogador: Jogador):
          # Inserir jogador na tabela Jogadores
-        ConfigDB.executa_sql("""INSERT INTO Jogadores (nome, senha, email, pontuacao) VALUES (?, ?, ?, ?);""", (jogador.nome, jogador.senha, jogador.email, jogador.pontuacao))
+        ConfigDB.executa_sql("""INSERT INTO Jogadores (nome, senha, email, pontuacao) VALUES (?, ?, ?, ?);""", (jogador.nome, jogador.senha, jogador.email, jogador.pontuacao,))
         self._lista_de_jogadores.append(jogador)
         return jogador
     
