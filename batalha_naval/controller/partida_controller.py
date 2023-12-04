@@ -51,7 +51,7 @@ class PartidaController:
     def pegar_tabuleiro(cls, id_partida : int):
         return cls.lista_jogos[id_partida].imprimir_tabuleiro()
     
-    #----------------------------------------------------------------------------    
+    #---------------------------------------------------------------------------
     #nao implementado no request
     #colocar o barco no tabuleiro 
     @classmethod
