@@ -1,2 +1,3 @@
-/batalha_naval/__pycache__/
-/batalha_naval.db
+.venv
+batalha_naval/batalha_naval.db
+__pycache__/
