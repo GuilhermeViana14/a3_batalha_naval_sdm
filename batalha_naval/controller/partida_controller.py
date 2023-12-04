@@ -15,11 +15,12 @@ class PartidaController:
             cls._instance = PartidaController()
         return cls._instance
     
+    # Metodo para entrar na fila
     @classmethod
     def acha_jogo(cls, id_jogador : int):
         
-      #procura dentro da lista se possui 2 jogadores
-      #caso possua ele cria uma partida na lista de jogos com os o id da partida
+      # O metodo serve para procurar dentro da lista se possuem 2 jogadores
+      # se caso possuir ele cria uma partida na lista de jogos com o o id da partida
       jogador = cls.get_instance()._db.get_id(id_jogador)
       if len(cls.lista_espera) >= 1:
           jogador_2 = cls.lista_espera.pop(0)
@@ -34,7 +35,7 @@ class PartidaController:
       
     @classmethod
     def verifica_se_possui_jogo(cls, id_jogador : int):
-        #aqui vamos verificar se o jogador possui algum jogo
+        # Aqui serve para verificar se o jogador possui algum jogo
         jogador = cls.get_instance()._db.get_id(id_jogador)
         for idx, jogo in enumerate(cls.lista_jogos):
             print(jogo.jogador_1.nome)
@@ -45,13 +46,14 @@ class PartidaController:
                 return idx
         return -1
     
+    # Metodo para pegarmos o tabuleiro atraves do id da partida e imprimirmos ele
     @classmethod
-    #pegamos o tabuleiro atraveis do id da partida e imprimimos ele
     def pegar_tabuleiro(cls, id_partida : int):
         return cls.lista_jogos[id_partida].imprimir_tabuleiro()
     
-    
-    # Teste para colocar o barco 
+    #----------------------------------------------------------------------------    
+    #nao implementado no request
+    #colocar o barco no tabuleiro 
     @classmethod
     def colocar_barco(cls, barcos : list, id_partida : int , id_jogador : int):
         jogador = cls.get_instance()._db.get_id(id_jogador)
@@ -63,7 +65,7 @@ class PartidaController:
             id = 2
         jogo.colocar_barco(barcos, id)
         return "sucesso"
-        
+    #----------------------------------------------------------------------------    
         
         
     

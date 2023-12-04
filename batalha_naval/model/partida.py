@@ -52,7 +52,7 @@ class Partida:
                 # atirei onde ja atirei
                 return "Voce ja atirou aqui"
             
-    
+    #----------------------------------------------------------------------------    
     #nao implementado no request
     def colocar_barco(self, barco : list, id_jogador : int):
         if id_jogador == 1:
