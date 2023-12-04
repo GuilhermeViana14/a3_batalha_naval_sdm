@@ -26,7 +26,6 @@ class JogadorDB:
                 jogador.pontuacao = r[4]
                 jogador.id = r[0]
                 self._lista_de_jogadores.append(jogador)
-            
     
     def registrar_jogador(self, jogador: Jogador):
          # Inserir jogador na tabela Jogadores
