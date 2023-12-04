@@ -49,7 +49,7 @@ class JogadorDB:
         ConfigDB.executa_sql("""DELETE FROM Jogadores where nome = ? """, (nome,))
         return self._lista_de_jogadores
     
-    #Da get id dos jogadores no banco de dados
+   # Metodo que pega o id de cada jogador no banco de dados
     def get_id(self, id : int):
         res = ConfigDB.executa_sql("""SELECT id, nome, email, senha, pontuacao FROM Jogadores where id = ? """,(id))
         for item in res:
