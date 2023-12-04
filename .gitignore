@@ -1,5 +1,5 @@
 .venv
 batalha_naval/batalha_naval.db
-/controller/__pycache__
-/database/__pycache__
-/model/__pycache__
+/controller/__pycache__/*
+/database/__pycache__/*
+/model/__pycache__/*
